@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* Основной контейнер */
+
+.container-fluid {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Верхняя полоска */
+.top-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Логотип + меню */
+.logo-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.menu {
+    display: flex;
+
+}
+
+.menu-link {
+    padding-left: 10px;
+}
+
+
+/* Большой блок с фото на главной странице*/
+.big-home-block {
+    width: 100%;
+    height: 300px;
+    background-color:darkgray;
+}
+
+
+/* Заголовок наши работы + блоки с работами */
+.our-works h2{
+    text-align: center;
+}
+

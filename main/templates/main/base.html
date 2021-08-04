@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Полоска в самом верху сайта -->
+        <div class="top-info">
+            <h2>АВТОРСКАЯ КЕРАМИКА</h2>
+            <h2 class="number">+7/922/ 207 38 38 | СЛЕДУЙ ЗА НАМИ</h2>
+        </div>
+        <hr>
+
+        <!-- Лого + меню -->
+        <div class="logo-menu">
+            <h3>Logo</h3>
+
+            <ul class="menu">
+                <li class="">
+                    <a class="menu-link"href="{% url 'home' %}">НА ГЛАВНУЮ</a>
+                </li>
+                <li class="">
+                    <a class="menu-link" href="{% url 'catalog:catalog' %}">КАТАЛОГ</a>
+                </li>
+                <li class="menu-link">
+                    <a class="" href="">ПАРТЕРАМ</a>
+                </li>
+                <li class="menu-link">
+                    <a class="" href="{% url 'about' %}">О МАСТЕРСКОЙ</a>
+                </li>
+                <li class="menu-link">
+                    <a class="" href="{% url 'contact' %}">КОНТАКТЫ</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    
+
+      
+</body>
+</html>
