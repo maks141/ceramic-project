@@ -5,22 +5,94 @@
     list-style-type: none;
 }
 
+@font-face {
+    font-family: 'fontbf27039ecba4e6511abddd84122a8aac';
+        
+        src:    url('https://nomail.com.ua/files/eot/bf27039ecba4e6511abddd84122a8aac.eot?#iefix') format('embedded-opentype'),
+                url('https://nomail.com.ua/files/woff/bf27039ecba4e6511abddd84122a8aac.woff') format('woff'),
+                url('https://nomail.com.ua/files/woff2/bf27039ecba4e6511abddd84122a8aac.woff2') format('woff2');
+    }
+    
+    @font-face { font-family: 'DINPro-CondensedMedium';  src: local('DINPro-CondensedMedium'), url('https://nomail.com.ua/files/woff/bf27039ecba4e6511abddd84122a8aac.woff') format('woff'); }
+
+/* base.html */
+
 /* Основной контейнер */
 
 .container-fluid {
-    width: 95%;
+    width: 92%;
     margin: 0 auto;
 }
 
+
 /* Верхняя полоска */
-.top-info {
+
+.top {
+    background-color: #CFCFCF;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    vertical-align: middle;
 }
 
+.top-info {
+    align-items: center;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    color: #202020;
+}
+
+.number {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 550;
+}
+
+.text-top {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 100;  
+}
+
+/* Корзина */
+
+.cart {
+    padding-top: 7px;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.cart-wrap {
+    display: flex;
+    align-items: center;
+    margin-left:auto;
+}
+
+.cart-wrap div {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.len-cart-block {
+    width: 21px;
+    height: 21px;
+    background-color: #FF4A4A;
+    border-radius: 50%;
+}
+
+.len-cart-block span {
+    margin: 0 auto;
+    color: white;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 15px;
+}
+
+#header-scrolled {
+    display: none;
+}
 
 /* Логотип + меню */
 .logo-menu {
+    padding-top: 7px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -33,19 +105,511 @@
 
 .menu-link {
     padding-left: 10px;
+    color: #636363;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 22px;
 }
 
+
+#top_nav {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+/* home.html */
 
 /* Большой блок с фото на главной странице*/
 .big-home-block {
     width: 100%;
     height: 300px;
-    background-color:darkgray;
+    background-color:#E6E7E9;
 }
 
+.wrap {
+    width: 100%;
+}
 
-/* Заголовок наши работы + блоки с работами */
-.our-works h2{
+.slider-container {
+    overflow: hidden;
+    background-color: palevioletred;
+}
+
+.slider-track {
+    display: flex;
+    background-color: purple;
+    transition: .2s;
+}
+
+.slider-item {
+    height: 100px;
+    width: 200px;
+}
+
+.slider-item:nth-child(3n+1) {
+    background-color: red;
+}
+
+.slider-item:nth-child(3n+2) {
+    background-color: black;
+}
+
+.slider-item:nth-child(3n+3) {
+    background-color: blue;
+}
+
+.slider-buttons {
     text-align: center;
 }
+
+/* Заголовок наши работы + блоки с работами */
+.title-of-page{
+    color: #636363;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 550;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.works-main-block {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.works-block-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.work-block {
+    height: 270px;
+    width: 270px;
+    margin-bottom: 75px;
+}
+
+.category-name {
+    width: 270px;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 25px;
+}
+
+#q {
+    display: none;
+}
+
+/* Страница товаров на выбранной категории */
+
+.product {
+    /*  */
+}
+
+.name-sort-block {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-sort-block h1 {
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 45px;
+    font-weight: 500;
+}
+
+
+/* Блок с товарами */
+
+.products-row-bock {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    margin-bottom: 50px;
+}
+
+.product-title {
+    width: 270px;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 25px;
+    padding-bottom: 6px;
+}
+
+.product-price {
+    padding-bottom: 10px;
+}
+
+.add-to-cart {
+    background-color: #999698;
+    border: 0 none;
+    width: 100px;
+    height: 35px;
+    border-style: solid;
+    color: #FFFFFF;
+    border-radius: 0.3em;
+}
+
+
+/* Детальная информация о товаре */
+
+.title-of-product-detail {
+    color: black;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 550;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    font-size: 30px;
+}
+
+.product-item-detail {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-of-product-detail {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.product-title-detail {
+    padding-bottom: 23px;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 550;
+    font-size: 48px;
+}
+
+.product-price-detail {
+    padding-bottom: 23px;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 30px;
+}
+
+.size-of-product {
+    padding-bottom: 23px;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 20px;
+    color: #666666;
+}
+
+.title-of-descriprion-detail {
+    width: 100%;
+    background-color: #F6F6F6;
+    height: 55px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.title-of-product-detail-1 {
+    background-color: white;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-top: 2px solid black;
+
+}
+
+.title-of-product-detail-1 h4{
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 24px;
+    font-weight: 550;
+    margin: 0 auto;
+}
+
+.descriprion-of-product-detail p{
+    font-family: 'DINPro-CondensedMedium';
+    color: #666666;
+    font-size: 18px;
+}
+
+.add-to-cart-1 {
+    background-color: #999698;
+    border: 0 none;
+    width: 110px;
+    height: 45px;
+    border-style: solid;
+    color: #FFFFFF;
+    border-radius: 0.3em;
+    font-size: 15px;
+}
+
+.add-cart-block-detail {
+    display: flex;
+    align-items: center;
+}
+
+#w {
+    padding-right: 15px;
+}
+
+#w label{
+    display: none;
+}
+
+.cart_product_form {
+    font-weight:bold;
+}
+
+#id_quantity {
+    display: flex; 
+    text-align-last: center;
+    font-size: 16px; 
+    font-family: sans-serif; 
+    font-weight: 700; 
+    color: #444; 
+    padding: .6em 1.4em .5em .8em; width: 100%; 
+    max-width: 100%; 
+    height: 45px;
+    box-sizing: border-box; 
+    margin: 0; 
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04); 
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff; 
+    background-repeat: no-repeat, repeat;
+    /* background-position: right .7em top 50%, 0 0; */
+    background-size: .65em auto, 100%; 
+
+}
+
+.category-of-product {
+    padding-top: 23px;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 18px;
+    color: #666666;
+}
+
+
+/* Модальное окно */
+
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+	pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; /* для отображения модального окна по центру */
+  }
+}
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    padding-top: 25px;
+    /* border-bottom: 1px solid #eceeef; */
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    /* font-size: 1.25rem; */
+    font-weight: 500;
+    font-size: 25px;
+    font-family: 'DINPro-CondensedMedium';
+
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+  position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+
+
+/* Товары в корзине */
+
+.product-item-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'DINPro-CondensedMedium';
+}
+
+.product-in-cart {
+    border-top: 1px solid #d2d3d3;
+    border-bottom: 1px solid #d2d3d3;
+    padding-top: 20px;
+}
+
+.title-item-cart {
+    width: 110px;
+}
+
+.title-item-cart h4 {
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'DINPro-CondensedMedium';
+}
+
+.item-quantity-cart {
+    width: 60px;
+}
+
+.item-price-cart {
+    width: 90px;
+}
+
+
+.img-item-cart {
+    border-radius: 10%;
+}
+
+.total-sum-cart p {
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 20px;
+    padding-top: 30px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.input-info {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.home-room {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-room-child {
+    width: 45%;
+}
+
+.input-home-room {
+    width: 100%;
+    height: 30px;
+}
+
+.total {
+    padding-top: 40px;
+}
+
+.total div {
+    text-align: right;
+}
+
+.total div p {
+    padding-bottom: 10px;
+}
+
+.btn-zakaz {
+    padding-top: 40px;
+}
+
+.btn-zakaz input {
+    width: 100%;
+    height: 60px;
+}
+
+
+
+  
+
 

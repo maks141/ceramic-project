@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+    <div class="product">
+        <div class="name-sort-block">
+            <h1>{{ category.name }}</h1>
+            <div class="sort">Сортировка</div>
+        </div>
+
+        <div class="products">
+            <div class="products-row-bock">
+                {% for product in products %}
+                    {% if category.name == product.category.name %}
+                        <div class="product-item">
+                            <a href="{% url 'catalog:product_detail' product.slug %}"><img src="{{ product.image.url }}" alt="" class="product-img" height="270" width="270"></a>
+                            <h3 class="product-title">{{ product.title }}</h3>
+                            <p class='product-price'>₽ {{ product.price }}</p>
+                            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                <p id="q">{{ cart_product_form }}</p>
+                                {% csrf_token %}
+                                <input type="submit" value="В корзину" class="add-to-cart">
+                            </form>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,12 +1,43 @@
 {% extends 'main/base.html' %}
 
-{% block content %}
+{% block big_block %}
     <!-- Большой блок -->
-    <div class="big-home-block"></div>
+    <!-- <div class="big-home-block"></div> -->
+    <div class="wrapper">
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slider-item"></div>
+                <div class="slider-item"></div>
+                <div class="slider-item"></div>
+                <div class="slider-item"></div>
+                <div class="slider-item"></div>
+                <div class="slider-item"></div>
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button class="btn-prev">Назад</button>
+            <button class="btn-next">Вперед</button>
+        </div>
+    </div>
+{% endblock %}
 
+{% block content %}
     <!-- Блок "Наши работы" -->
     <div class="our-works">
-        <h2>Наши работы</h2>
-        <!-- Тут будут работы из базы данных -->
+        <h2 class="title-of-page">Наши работы</h2>
+        <!-- Наши работы -->
+        <div class="works-main-block">
+            <div class="works-block-row">
+                {% for category in categorys %}
+                    {% if category.add_in_home %}
+                        <div class="work-block">
+                            <!-- <h4>{{ category.name }}</h4> -->
+                            <a href="{% url 'catalog:category_detail' category.slug %}"><img src="{{ category.image.url }}" alt="" height="270" width="270"></a>
+                            <h3 class="category-name">{{ category.name }}</h3>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

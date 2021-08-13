@@ -9,18 +9,37 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Полоска в самом верху сайта -->
-        <div class="top-info">
-            <h2>АВТОРСКАЯ КЕРАМИКА</h2>
-            <h2 class="number">+7/922/ 207 38 38 | СЛЕДУЙ ЗА НАМИ</h2>
+    <div class="top">
+        <div class="container-fluid" id='top'>
+            <!-- Полоска в самом верху сайта -->
+            <div class="top-info">
+                <h2 class="text-top">АВТОРСКАЯ КЕРАМИКА</h2>
+                <h2 class="number">+7/922/ 207 38 38 | СЛЕДУЙ ЗА НАМИ</h2>
+            </div>
         </div>
-        <hr>
+    </div>
 
-        <!-- Лого + меню -->
+    <div class="top-main" id="top_nav">
+    <div class="container-fluid">
+        <!-- Лого + меню + корзина -->
         <div class="logo-menu">
-            <h3>Logo</h3>
-
+            <a href="{% url 'home' %}"><img src="{% static 'images/logo.jpg'%}" alt="" height="60" width="78" ></a>
+        <div>
+            <div class="cart">
+              <div class="cart-wrap">
+                <div>
+                    <a href="#"><a href="#openModal"><img src="{% static 'images/cart.svg'%}" alt="" height="35" width="35" ></a></a>
+                    <div class="len-cart-block">
+                      <span>
+                        {% if len_product  == 0%}
+                        {% else %}
+                        {{ len_product }}
+                        {% endif %}
+                      </span>
+                    </div>
+                </div>
+              </div>
+            </div>
             <ul class="menu">
                 <li class="">
                     <a class="menu-link"href="{% url 'home' %}">НА ГЛАВНУЮ</a>
@@ -28,22 +47,110 @@
                 <li class="">
                     <a class="menu-link" href="{% url 'catalog:catalog' %}">КАТАЛОГ</a>
                 </li>
-                <li class="menu-link">
-                    <a class="" href="">ПАРТЕРАМ</a>
+                <li class="">
+                    <a class="menu-link" href="{% url 'partners' %}">ПАРТНЕРАМ</a>
                 </li>
-                <li class="menu-link">
-                    <a class="" href="{% url 'about' %}">О МАСТЕРСКОЙ</a>
+                <li class="">
+                    <a class="menu-link" href="{% url 'about' %}">О МАСТЕРСКОЙ</a>
                 </li>
-                <li class="menu-link">
-                    <a class="" href="{% url 'contact' %}">КОНТАКТЫ</a>
+                <li class="">
+                    <a class="menu-link" href="{% url 'contact' %}">КОНТАКТЫ</a>
                 </li>
             </ul>
         </div>
-        <hr>
-        {% block content %}
-        {% endblock %}
+        </div>
     </div>
+    </div>
+  </div>
 
+    <div id="openModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Ваш заказ</h3>
+              <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+              <div class="container-item-cart">
+                <div class="product-in-cart">
+                  {% for item in cart %}
+                    {% with product=item.product %}
+                      <div class="product-item-cart">
+                        <div class="img-item-cart"><img src="{{ item.product.image.url }}" alt="" class="product-img" height="73" width="73"></div>
+                        <div class="title-item-cart">
+                          <h4>{{ item.product.title }}</h4>
+                        </div>
+                        <div class="item-quantity-cart">
+                          <p>{{ item.quantity }}</p>
+                        </div>
+                        <div class="item-price-cart">
+                          <p>{{ item.total_price }}</p>
+                        </div>
+                        <div class="remove-item-cart-block">
+                          <a href="{% url 'cart:cart_remove' product.id %}" class="remove-item-a"><img src="{% static 'images/remove.svg'%}" alt="Удалить" width="20" height="20"></a>
+                        </div>
+                      </div>
+                    {% endwith %}
+                  {% endfor %}
+                </div>
+                <div class="total-sum-cart">
+                  <p>Сумма: {{ cart.get_total_price }} р.</p>
+                </div>
+                <div class="form-cart-block">
+                  <form action="">
+                    <div class="reg-info-block">
+                      <p>Ваш Email</p>
+                      <input type="text" class="input-info">
+                      <input type="text" class="input-info">
+                      <p>Есть подарочный сертификат?</p>
+                      <input type="text" class="input-info">
+                    </div>
+                    <div class="dostavka-block">
+                      <h3>Доставка</h3>
+                      <p>Город</p>
+                      <input type="text" class="input-info">
+                      <input type="radio"> СДЭК
+                      <p>Получатель (ФИО полностью)</p>
+                      <input type="text" class="input-info">
+                      <p>Улица</p>
+                      <input type="text" class="input-info">
+                      <div class="home-room">
+                        <div class="home-room-child">
+                          <p>Дом</p>
+                          <input type="text" class="input-home-room">
+                        </div>
+                        <div class="home-room-child">
+                          <p>Квартира/офис</p>
+                          <input type="text" class="input-home-room">
+                        </div>
+                      </div>
+                      <div class="total">
+                        <div>
+                          <p>Сумма: {{ cart.get_total_price }} р.</p>
+                          <h3>Итоговая сумма: {{ cart.get_total_price }} р.</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="btn-zakaz">
+                      <a href="{% url 'pay' %}"><div class="button-buy">Перейти к оплате</div></a>
+                    </div>
+                  </form>
+                </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        {% block big_block %}
+        {% endblock %}
+
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="{% static 'js/script.js' %}"></script>
     
 
       

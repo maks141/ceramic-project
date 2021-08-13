@@ -16,7 +16,9 @@ Including another URLconf
 from re import VERBOSE
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 from main import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,9 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('catalog/', include('catalog.urls'), name='catalog'),
+    path('cart/', include('cart.urls'), name='cart'),
+    path('partners/', views.partners, name='partners'),
+    path('pay/', views.pay, name='pay')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
