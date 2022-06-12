@@ -9,7 +9,6 @@
         </div>
 
         <div class="products">
-            <div class="products-row-bock">
                 {% for product in products %}
                     {% if category.name == product.category.name %}
                         <div class="product-item">
@@ -24,7 +23,6 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-            </div>
         </div>
 
     </div>

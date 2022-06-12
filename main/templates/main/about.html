@@ -1,5 +1,17 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <h1>О мастерской</h1>
+    <h2 class="title-of-page">О мастерской</h2>
+
+    {% for about in abouts %}
+        <div class="about-block">
+            <div class="photo-about">
+                <img src="{{ about.image.url }}" alt="">
+            </div>
+            <div class="about-text">
+                <p>{{ about.text }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

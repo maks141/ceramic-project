@@ -1,5 +1,32 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 {% block content %}
-    <h1>Контакты</h1>
+    <h1 class="title-of-page">Контакты</h1>
+    <div class="contact-block">
+        <div class="child-contact">
+            <h2 class="adres-title">Адрес мастерской:</h2>
+            <div class="info-block-contact">
+                <img src="{% static 'images/geo.svg' %}" alt="местоположение" width="53" height="53">
+                <p class="info-block-text">г. Иркутск, ул. Советская, 109/3</p>
+            </div>
+            <div class="info-block-contact">
+                <img src="{% static 'images/phone.svg' %}" alt="" width="53" height="53">
+                <p class="info-block-text">+7 (902)-7-622-172</p>
+            </div>
+            <iframe src="https://yandex.ru/map-widget/v1/-/CCUmENDG~B" frameborder="0" style="position:relative;"></iframe>
+        </div>
+
+        <div class="child-contact">
+            <h2 class="adres-title">Адрес фирменного магазина:</h2>
+            <div class="info-block-contact">
+                <img src="{% static 'images/geo.svg' %}" alt="местоположение" width="53" height="53">
+                <p class="info-block-text">г. Иркутск, ул, 3 июля, 25, 1 этаж</p>
+            </div>
+            <div class="info-block-contact">
+                <img src="{% static 'images/phone.svg' %}" alt="" width="53" height="53">
+                <p class="info-block-text">+7 (902)-7-622-172</p>
+            </div>
+            <iframe src="https://yandex.ru/map-widget/v1/-/CCUmENDG~B" frameborder="0" style="position:relative;"></iframe>
+        </div>
+    </div>
 {% endblock %}

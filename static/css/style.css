@@ -5,7 +5,22 @@
     list-style-type: none;
 }
 
-@font-face {
+/* @font-face {
+    font-family: 'DINPro-CondensedMedium';
+    src: url("../fonts/bf27039ecba4e6511abddd84122a8aac.eot") format("truetype");
+} */
+
+@font-face { 
+    font-family: "DINPro-CondensedMedium";
+    src: url("../fonts/DINProCondensedRegular/DINProCondensedRegular.eot");
+    src: url("../fonts/DINProCondensedRegular/DINProCondensedRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/DINProCondensedRegular/DINProCondensedRegular.woff") format("woff"),
+    url("../fonts/DINProCondensedRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* @font-face {
     font-family: 'fontbf27039ecba4e6511abddd84122a8aac';
         
         src:    url('https://nomail.com.ua/files/eot/bf27039ecba4e6511abddd84122a8aac.eot?#iefix') format('embedded-opentype'),
@@ -13,14 +28,14 @@
                 url('https://nomail.com.ua/files/woff2/bf27039ecba4e6511abddd84122a8aac.woff2') format('woff2');
     }
     
-    @font-face { font-family: 'DINPro-CondensedMedium';  src: local('DINPro-CondensedMedium'), url('https://nomail.com.ua/files/woff/bf27039ecba4e6511abddd84122a8aac.woff') format('woff'); }
+    @font-face { font-family: 'DINPro-CondensedMedium';  src: local('DINPro-CondensedMedium'), url('https://nomail.com.ua/files/woff/bf27039ecba4e6511abddd84122a8aac.woff') format('woff'); } */    
 
 /* base.html */
 
 /* Основной контейнер */
 
 .container-fluid {
-    width: 92%;
+    width: 89%;
     margin: 0 auto;
 }
 
@@ -120,11 +135,6 @@
 /* home.html */
 
 /* Большой блок с фото на главной странице*/
-.big-home-block {
-    width: 100%;
-    height: 300px;
-    background-color:#E6E7E9;
-}
 
 .wrap {
     width: 100%;
@@ -132,34 +142,20 @@
 
 .slider-container {
     overflow: hidden;
-    background-color: palevioletred;
 }
 
 .slider-track {
     display: flex;
-    background-color: purple;
-    transition: .2s;
+    transition: 2s;
+    /* object-fit: cover;
+    width: 100%;
+    height: auto; */
 }
 
 .slider-item {
-    height: 100px;
-    width: 200px;
-}
-
-.slider-item:nth-child(3n+1) {
-    background-color: red;
-}
-
-.slider-item:nth-child(3n+2) {
-    background-color: black;
-}
-
-.slider-item:nth-child(3n+3) {
-    background-color: blue;
-}
-
-.slider-buttons {
-    text-align: center;
+    /* object-fit: cover; */
+    width: 100%;
+    height: auto;
 }
 
 /* Заголовок наши работы + блоки с работами */
@@ -174,19 +170,12 @@
 }
 
 .works-main-block {
-    display: flex;
-    width: 75%;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-auto-rows: minmax(370px, auto);
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
-.works-block-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
 
 .work-block {
     height: 270px;
@@ -228,10 +217,11 @@
 
 /* Блок с товарами */
 
-.products-row-bock {
-    display: flex;
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-auto-rows: minmax(310px, auto);
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .product-item {
@@ -568,8 +558,19 @@
 
 .input-info {
     width: 100%;
-    height: 30px;
+    height: 40px;
     margin-bottom: 10px;
+    border-radius: 0%;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    outline: white; 
+    border: 1px black solid;
+}
+
+.input-info:focus {
+    border-radius: 0%;
+    border: 1px black solid;
 }
 
 .home-room {
@@ -584,7 +585,52 @@
 
 .input-home-room {
     width: 100%;
-    height: 30px;
+    height: 40px;
+    border-radius: 0%;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    outline: white; 
+    border: 1px black solid;
+}
+
+.input-home-room:focus{
+    border-radius: 0%;
+    border: 1px black solid;
+}
+
+.commit-block {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-commit {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+    border-radius: 0%;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    outline: white; 
+    border: 1px black solid;
+}
+
+.dostavka-block {
+    margin-top: 20px;
+}
+
+.title-dostavka {
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 25px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.title-input {
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 19px;
+    padding-bottom: 4px;
 }
 
 .total {
@@ -608,8 +654,98 @@
     height: 60px;
 }
 
+/* Страница контактов */
 
+.contact-block {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
+.child-contact {
+    width: 45%;
+}
+
+.adres-title {
+    text-align: center;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    padding-bottom: 10px;
+    font-size: 30px;
+
+}
+
+.info-block-contact {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.info-block-text {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+iframe {
+    margin-top: 110px;
+    width: 100%;
+    height: 400px;
+}
+
+.parter-item-block {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.partner-text {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.parter-item-block a {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.parter-item-block img {
+    padding-bottom: 5px;
+}
+
+.about-block {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo-about {
+    width: 46%;
+}
+
+.about-text {
+    width: 46%;
+}
+
+.about-text p {
+    white-space: pre-wrap;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 21px;
+    color: #666666;
+}
+
+.photo-about img {
+    width: 100%;
+    height: auto;
+}
   
 
 

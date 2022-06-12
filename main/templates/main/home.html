@@ -1,24 +1,24 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 {% block big_block %}
     <!-- Большой блок -->
     <!-- <div class="big-home-block"></div> -->
     <div class="wrapper">
         <div class="slider-container">
             <div class="slider-track">
+                <!-- <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
                 <div class="slider-item"></div>
-                <div class="slider-item"></div>
-                <div class="slider-item"></div>
+                <div class="slider-item"></div> -->
+                {% for img in slider %}
+                    <img src="{{ img.image.url }}" alt="" class="slider-item">
+                {% endfor %}
             </div>
         </div>
-        <div class="slider-buttons">
-            <button class="btn-prev">Назад</button>
-            <button class="btn-next">Вперед</button>
-        </div>
     </div>
+    
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,6 @@
         <h2 class="title-of-page">Наши работы</h2>
         <!-- Наши работы -->
         <div class="works-main-block">
-            <div class="works-block-row">
                 {% for category in categorys %}
                     {% if category.add_in_home %}
                         <div class="work-block">
@@ -37,7 +36,6 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-            </div>
         </div>
     </div>
 {% endblock %}
