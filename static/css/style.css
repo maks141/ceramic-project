@@ -35,7 +35,12 @@
 /* Основной контейнер */
 
 .container-fluid {
-    width: 89%;
+    width: 950px;
+    margin: 0 auto;
+}
+
+.container-fluid-top {
+    width: 1250px;
     margin: 0 auto;
 }
 
@@ -43,7 +48,7 @@
 /* Верхняя полоска */
 
 .top {
-    background-color: #CFCFCF;
+    background-color: #569192;
     display: flex;
     justify-content: center;
     vertical-align: middle;
@@ -54,7 +59,16 @@
     height: 45px;
     display: flex;
     justify-content: space-between;
-    color: #202020;
+    color: #ffffff;
+}
+
+.contacts-top {
+    display: flex;
+    align-items: center;
+}
+
+.icon-top {
+    margin-left: 5px;
 }
 
 .number {
@@ -67,7 +81,8 @@
     font-weight: 100;  
 }
 
-/* Корзина */
+
+/* Корзина + контакты */
 
 .cart {
     padding-top: 7px;
@@ -105,9 +120,85 @@
     display: none;
 }
 
+.contact-cart-block {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.contact-inner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #287AFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-inner:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #0456da;
+}
+
+.contact-wrapper {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.сart-inner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cart-len {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background: #E94B35;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-wrapper {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #b1b1b1 1px solid;
+    border-radius: 4px;
+}
+
+.cart-wrapper:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: #d2d2d2;
+}
+
 /* Логотип + меню */
 .logo-menu {
     padding-top: 7px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -115,12 +206,24 @@
 
 .menu {
     display: flex;
-
+    
 }
 
 .menu-link {
     padding-left: 10px;
     color: #636363;
+    font-family: 'DINPro-CondensedMedium';
+    font-size: 23px;
+}
+
+.menu-link:hover {
+    color: black;  
+    transition: 0.3s;  
+}
+
+.separator {
+    padding-left: 10px;
+    color: black;
     font-family: 'DINPro-CondensedMedium';
     font-size: 22px;
 }
@@ -129,7 +232,9 @@
 #top_nav {
     position: sticky;
     top: 0;
-    background-color: white;
+    background-color: #F0F7FB;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 /* home.html */
@@ -159,6 +264,17 @@
 }
 
 /* Заголовок наши работы + блоки с работами */
+
+.home-slogan {
+    color: #636363;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 28px;
+}
+
 .title-of-page{
     color: #636363;
     font-family: 'DINPro-CondensedMedium';
@@ -170,6 +286,7 @@
 }
 
 .works-main-block {
+    padding-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 270px);
     grid-auto-rows: minmax(370px, auto);
@@ -187,7 +304,8 @@
     width: 270px;
     font-family: 'DINPro-CondensedMedium';
     font-weight: 500;
-    font-size: 25px;
+    font-size: 26px;
+    color: #409a9b;
 }
 
 #q {
@@ -234,10 +352,15 @@
     font-weight: 500;
     font-size: 25px;
     padding-bottom: 6px;
+    color: #409a9b;
 }
 
 .product-price {
     padding-bottom: 10px;
+    width: 270px;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 22px;
 }
 
 .add-to-cart {
@@ -389,271 +512,6 @@
 
 /* Модальное окно */
 
-.modal {
-    position: fixed; /* фиксированное положение */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.5); /* цвет фона */
-    z-index: 1050;
-    opacity: 0; /* по умолчанию модальное окно прозрачно */
-    -webkit-transition: opacity 200ms ease-in; 
-    -moz-transition: opacity 200ms ease-in;
-    transition: opacity 200ms ease-in; /* анимация перехода */
-    pointer-events: none; /* элемент невидим для событий мыши */
-    margin: 0;
-    padding: 0;
-}
-/* при отображении модального окно */
-.modal:target {
-    opacity: 1; /* делаем окно видимым */
-	pointer-events: auto; /* элемент видим для событий мыши */
-    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
-}
-/* ширина модального окна и его отступы от экрана */
-.modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 10px;
-}
-@media (min-width: 576px) {
-  .modal-dialog {
-      max-width: 500px;
-      margin: 30px auto; /* для отображения модального окна по центру */
-  }
-}
-/* свойства для блока, содержащего контент модального окна */ 
-.modal-content {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3rem;
-    outline: 0;
-}
-@media (min-width: 768px) {
-  .modal-content {
-      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
-      box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  }
-}
-/* свойства для заголовка модального окна */
-.modal-header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 15px;
-    padding-top: 25px;
-    /* border-bottom: 1px solid #eceeef; */
-}
-.modal-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.5;
-    /* font-size: 1.25rem; */
-    font-weight: 500;
-    font-size: 25px;
-    font-family: 'DINPro-CondensedMedium';
-
-}
-/* свойства для кнопки "Закрыть" */
-.close {
-    float: right;
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .5;
-    text-decoration: none;
-}
-/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
-.close:focus, .close:hover {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: .75;
-}
-/* свойства для блока, содержащего основное содержимое окна */
-.modal-body {
-  position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 15px;
-    overflow: auto;
-}
-
-
-/* Товары в корзине */
-
-.product-item-cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    font-weight: 500;
-    font-size: 20px;
-    font-family: 'DINPro-CondensedMedium';
-}
-
-.product-in-cart {
-    border-top: 1px solid #d2d3d3;
-    border-bottom: 1px solid #d2d3d3;
-    padding-top: 20px;
-}
-
-.title-item-cart {
-    width: 110px;
-}
-
-.title-item-cart h4 {
-    font-weight: 500;
-    font-size: 20px;
-    font-family: 'DINPro-CondensedMedium';
-}
-
-.item-quantity-cart {
-    width: 60px;
-}
-
-.item-price-cart {
-    width: 90px;
-}
-
-
-.img-item-cart {
-    border-radius: 10%;
-}
-
-.total-sum-cart p {
-    font-family: 'DINPro-CondensedMedium';
-    font-size: 20px;
-    padding-top: 30px;
-    text-align: right;
-    padding-bottom: 10px;
-}
-
-.input-info {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 10px;
-    border-radius: 0%;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none;
-    outline: white; 
-    border: 1px black solid;
-}
-
-.input-info:focus {
-    border-radius: 0%;
-    border: 1px black solid;
-}
-
-.home-room {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-room-child {
-    width: 45%;
-}
-
-.input-home-room {
-    width: 100%;
-    height: 40px;
-    border-radius: 0%;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none;
-    outline: white; 
-    border: 1px black solid;
-}
-
-.input-home-room:focus{
-    border-radius: 0%;
-    border: 1px black solid;
-}
-
-.commit-block {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.input-commit {
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 40px;
-    border-radius: 0%;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none;
-    outline: white; 
-    border: 1px black solid;
-}
-
-.dostavka-block {
-    margin-top: 20px;
-}
-
-.title-dostavka {
-    font-family: 'DINPro-CondensedMedium';
-    font-size: 25px;
-    font-weight: 500;
-    padding-bottom: 10px;
-}
-
-.title-input {
-    font-family: 'DINPro-CondensedMedium';
-    font-size: 19px;
-    padding-bottom: 4px;
-}
-
-.total {
-    padding-top: 40px;
-}
-
-.total div {
-    text-align: right;
-}
-
-.total div p {
-    padding-bottom: 10px;
-}
-
-.btn-zakaz {
-    padding-top: 40px;
-}
-
-.btn-zakaz input {
-    width: 100%;
-    height: 60px;
-}
-
 /* Страница контактов */
 
 .contact-block {
@@ -746,6 +604,68 @@ iframe {
     width: 100%;
     height: auto;
 }
+
+/* Страница корзины */
+
+.order-block {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-of-order {
+    width: 570px;
+    
+}
+
+.order-view {
+    width: 570px;
+   
+}
+
+.name-order-block {
+    text-align: center;
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 27px;
+}
+
+/* детали(форма) заполнения заказа*/
+.title-input {
+    font-family: 'DINPro-CondensedMedium';
+    font-weight: 500;
+    font-size: 23px;
+    color: rgb(54, 54, 54);
+}
+
+.reg-info-block input {
+    width: 100%;
+    height: 35px;
+}
+
+.input-double {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-double-text-input {
+    width: 90%;
+}
+
+.input-double-text-input input {
+    width: 100%;
+    height: 35px;
+}
+
+.dostavka-block input {
+}
+
+.order-name input {
+    width: 100%;
+}
+
+
   
 
 

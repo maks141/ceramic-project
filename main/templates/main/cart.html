@@ -1,0 +1,136 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1 class="title-of-page">Оформление заказа</h1>
+    <div class="order-block">
+        <div class="detail-of-order">
+            <h2 class="name-order-block">Детали заказа</h2>
+            <form action="{% url 'pay' %}" method='post'>
+                {% csrf_token %}
+                <div class="reg-info-block">
+                  <p class="title-input">Ваш Email</p>
+                  {{ cartForm.email }}
+                  <p class="title-input">Ваш номер телефона</p>
+                  {{ cartForm.number }}
+                  <p class="title-input">Есть подарочный сертификат?</p>
+                  {{ cartForm.gift_sertificate }}
+                </div>
+                <div class="dostavka-block">
+                  <div class="order-name">
+                    <p class="title-input">Получатель (ФИО полностью)</p>
+                    {{ cartForm.name_of_user }}
+                  </div>
+                  <div class="input-double">
+                    <div class="input-double-text-input">
+                      <p class="title-input">Город</p>
+                      {{ cartForm.city }}
+                    </div>
+                    <div class="input-double-text-input">
+                      <p class="title-input">Улица</p>
+                      {{ cartForm.street }}
+                    </div>
+                  </div>
+                  <div class="home-room">
+                    <div class="home-room-child">
+                      <p class="title-input">Дом</p>
+                      {{ cartForm.house }}
+                    </div>
+                    <div class="home-room-child">
+                      <p class="title-input">Квартира/офис</p>
+                      {{ cartForm.room }}
+                    </div>
+                  </div>
+                  <div class="">
+                    {{ cartForm.type_dost }} СДЭК
+                  </div>
+                  <div class="commit-block">
+                    <p class="title-input">Комментарий к заказу</p>
+                    {{ cartForm.commit }}
+                  </div>
+                  <div class="total">
+                    <div>
+                      <p>Сумма: {{ cart.get_total_price }} р.</p>
+                      <h3>Итоговая сумма: {{ cart.get_total_price }} р.</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-zakaz">
+                  <input type="submit" value="Перейти к оплате">
+                </div>
+                </form>
+        </div>
+        <div class="order-view">
+            <h2 class="name-order-block">Ваш заказ</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellendus nihil non. Quae officiis id eligendi molestias. Explicabo repudiandae doloremque nisi! Voluptatum unde expedita nulla itaque delectus totam voluptas tempora.</p>
+        </div>
+    </div>
+
+<!-- {% for item in cart %}
+{% with product=item.product %}
+  <div class="product-item-cart">
+    <div class="img-item-cart"><img src="{{ item.product.image.url }}" alt="" class="product-img" height="73" width="73"></div>
+    <div class="title-item-cart">
+      <h4>{{ item.product.title }}</h4>
+    </div>
+    <div class="item-quantity-cart">
+      <p>{{ item.quantity }}</p>
+    </div>
+    <div class="item-price-cart">
+      <p>{{ item.total_price }}</p>
+    </div>
+    <div class="remove-item-cart-block">
+      <a href="{% url 'cart:cart_remove' product.id %}" class="remove-item-a"><img src="{% static 'images/remove.svg'%}" alt="Удалить" width="20" height="20"></a>
+    </div>
+  </div>
+{% endwith %}
+{% endfor %}
+</div>
+<div class="total-sum-cart">
+<p>Сумма: {{ cart.get_total_price }} р.</p>
+</div>
+<div class="form-cart-block">
+<form action="{% url 'pay' %}" method='post'>
+{% csrf_token %}
+<div class="reg-info-block">
+  <p class="title-input">Ваш Email</p>
+  {{ cartForm.email }}
+  {{ cartForm.number }}
+  <p class="title-input">Есть подарочный сертификат?</p>
+  {{ cartForm.gift_sertificate }}
+</div>
+<div class="dostavka-block">
+  <h3 class="title-dostavka">Доставка</h3>
+  <p class="title-input">Город</p>
+  {{ cartForm.city }}
+  {{ cartForm.type_dost }} СДЭК
+  <p class="title-input">Получатель (ФИО полностью)</p>
+  {{ cartForm.name_of_user }}
+  <p class="title-input">Улица</p>
+  {{ cartForm.street }}
+  <div class="home-room">
+    <div class="home-room-child">
+      <p class="title-input">Дом</p>
+      {{ cartForm.house }}
+    </div>
+    <div class="home-room-child">
+      <p class="title-input">Квартира/офис</p>
+      {{ cartForm.room }}
+    </div>
+  </div>
+  <div class="commit-block">
+    <p class="title-input">Комментарий к заказу</p>
+    {{ cartForm.commit }}
+  </div>
+  <div class="total">
+    <div>
+      <p>Сумма: {{ cart.get_total_price }} р.</p>
+      <h3>Итоговая сумма: {{ cart.get_total_price }} р.</h3>
+    </div>
+  </div>
+</div>
+<div class="btn-zakaz">
+  <input type="submit" value="Перейти к оплате">
+</div>
+</form> -->
+{% endblock %}

@@ -10,59 +10,67 @@
 </head>
 <body>
     <div class="top">
-        <div class="container-fluid" id='top'>
+        <div class="container-fluid-top" id='top'>
             <!-- Полоска в самом верху сайта -->
             <div class="top-info">
-                <h2 class="text-top">АВТОРСКАЯ КЕРАМИКА</h2>
-                <h2 class="number">+7/922/ 207 38 38 | СЛЕДУЙ ЗА НАМИ</h2>
+                <h2 class="text-top">КЕРАМИКА РУЧНОЙ РАБОТЫ</h2>
+                <div class="contacts-top">
+                  <h2 class="number">+7 922 207 38 38 |</h2>
+                  <a href="#" class="icon-top"><img alt="" height="30" width="30" src="{% static 'images/vk.svg'%}"></a>
+                  <a href="#" class="icon-top"><img alt="" height="30" width="30" src="{% static 'images/insta.svg'%}"></a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="top-main" id="top_nav">
-    <div class="container-fluid">
-        <!-- Лого + меню + корзина -->
-        <div class="logo-menu">
-            <a href="{% url 'home' %}"><img src="{% static 'images/logo.jpg'%}" alt="" height="60" width="78" ></a>
-        <div>
-            <div class="cart">
-              <div class="cart-wrap">
-                <div>
-                    <a href="#"><a href="#openModal"><img src="{% static 'images/cart.svg'%}" alt="" height="35" width="35" ></a></a>
-                    {% if len_product == 0%}
-                    {% else %}
-                      <div class="len-cart-block">
-                        <span>
-                          {{ len_product }}
-                        </span>
-                      </div>
-                    {% endif %}
+      <div class="container-fluid-top">
+          <!-- Лого + меню -->
+          <div class="logo-menu">
+              <a href="{% url 'home' %}"><img src="{% static 'images/log.png'%}" alt="" height="60" width="78" ></a>
+          <div>
+              <!-- <div class="cart">
+                <div class="cart-wrap">
+                  <div>
+                      <a href="#"><a href="#openModal"><img src="{% static 'images/cart.svg'%}" alt="" height="35" width="35" ></a></a>
+                      {% if len_product == 0%}
+                      {% else %}
+                        <div class="len-cart-block">
+                          <span>
+                            {{ len_product }}
+                          </span>
+                        </div>
+                      {% endif %}
+                  </div>
                 </div>
-              </div>
-            </div>
-            <ul class="menu">
-                <li class="">
-                    <a class="menu-link"href="{% url 'home' %}">НА ГЛАВНУЮ</a>
-                </li>
-                <li class="">
-                    <a class="menu-link" href="{% url 'catalog:catalog' %}">КАТАЛОГ</a>
-                </li>
-                <li class="">
-                    <a class="menu-link" href="{% url 'partners' %}">ПАРТНЕРАМ</a>
-                </li>
-                <li class="">
-                    <a class="menu-link" href="{% url 'about' %}">О МАСТЕРСКОЙ</a>
-                </li>
-                <li class="">
-                    <a class="menu-link" href="{% url 'contact' %}">КОНТАКТЫ</a>
-                </li>
-            </ul>
-        </div>
-        </div>
-    </div>
+              </div> -->
+              <ul class="menu">
+                  <li class="">
+                      <a class="menu-link"href="{% url 'home' %}">НА ГЛАВНУЮ</a>
+                  </li>
+                  <span class="separator">|</span>
+                  <li class="">
+                      <a class="menu-link" href="{% url 'catalog:catalog' %}">КАТАЛОГ</a>
+                  </li>
+                  <span class="separator">|</span>
+                  <li class="">
+                      <a class="menu-link" href="{% url 'partners' %}">ПАРТНЕРАМ</a>
+                  </li>
+                  <span class="separator">|</span>
+                  <li class="">
+                      <a class="menu-link" href="{% url 'about' %}">О МАСТЕРСКОЙ</a>
+                  </li>
+                  <span class="separator">|</span>
+                  <li class="">
+                      <a class="menu-link" href="{% url 'contact' %}">КОНТАКТЫ</a>
+                  </li>
+              </ul>
+          </div>
+          </div>
+      </div>
     </div>
   </div>
-    <div id="openModal" class="modal">
+    <!-- <div id="openModal" class="modal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -145,6 +153,23 @@
             </div>
           </div>
         </div>
+      </div> -->
+
+      <div class="contact-cart-block">
+        {% if len_product == 0 %}
+          <div class="contact-inner">
+            <div class="contact-wrapper">
+              <img alt="" height="35" width="35" src="{% static 'images/massege.png' %}">
+            </div>
+         </div>
+        {% else %}
+          <div class="cart-inner">
+            <div class="cart-wrapper">
+              <img alt="" height="35" width="35" src="{% static 'images/cart.png' %}">
+            </div>
+            <div class="cart-len"> {{ len_product }} </div>
+          </div>
+        {% endif %}
       </div>
         {% block big_block %}
         {% endblock %}

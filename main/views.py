@@ -102,6 +102,9 @@ def about(request):
 def contact(request):
     return render(request, 'main/contact.html')
 
+def cart(request):
+    return render(request, 'main/cart.html')
+
 
 
 
